@@ -17,6 +17,7 @@ func GetAllFiles() []string {
 		dir = "/home/"
 	}
 
+	// Directory for testing the program, try to change it to your own directory
 	dir = "D:\\DEV\\Github\\ransomware\\fileutils\\test"
 
 	err := filepath.Walk(dir,
