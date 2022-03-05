@@ -25,7 +25,6 @@ func main() {
 
 		fmt.Println("plaintext: ", string(plaintext))
 
-
 		block, err := aes.NewCipher(bytes)
 		if err != nil {
 			panic(err.Error())
@@ -43,17 +42,13 @@ func main() {
 
 		ciphertext := aesGCM.Seal(nonce, nonce, plaintext, nil)
 
-		fmt.Println("crypted hex: ",hex.EncodeToString(ciphertext))
+		fmt.Println("crypted hex: ", hex.EncodeToString(ciphertext))
 
 		err2 := ioutil.WriteFile(file, ciphertext, 0644)
 
-		if err2 != nil {	
+		if err2 != nil {
 			panic(err.Error())
 		}
 	}
 
-}
-
-func sendKeyToServer() {
-	// send key to server
 }
