@@ -18,7 +18,7 @@ func GetAllFiles() []string {
 	}
 
 	// Directory for testing the program, try to change it to your own directory
-	dir = "D:\\DEV\\Github\\ransomware\\fileutils\\test"
+	dir = "<your_dir>\\test_encrypt_dir\\"
 
 	err := filepath.Walk(dir,
 		func(path string, info os.FileInfo, err error) error {
@@ -38,5 +38,4 @@ func GetAllFiles() []string {
 	}
 
 	return files
-
 }

