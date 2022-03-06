@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/FreezingKas/basic-ransomware-golang">
-    <img src="https://svgur.com/i/etn.svg" alt="Logo" width="100" height="100">
+    <img src="https://svgur.com/i/etn.svg" alt="Logo" width="200" height="200">
   </a>
 
   <h3 align="center">Basic Ransomware Golang</h3>
