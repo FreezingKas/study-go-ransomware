@@ -97,7 +97,7 @@ You have 4 modules : `attacker`, `encrypter`, `decrypter` and `fileutils`.
 
 `decrypter` decrypt the files with the AES key.
 
-`fileutils` retrieves all the file paths to be encrypted/decrypted. By default it is *C:\Users\\* on Windows and */home/* on Linux. But I redefined the value of **dir** with a testing directory (test_encrypt_dir).
+`fileutils` retrieves all the file paths to be encrypted/decrypted.
 
 <br>
 
@@ -114,6 +114,11 @@ First, it generates an random 256 bits key and send it to the server. By default
 * decrypter
 
 Similarly to encrypter, it retrieves all the files but it decrypt with the key passed in STDIN and replace files contents.
+
+* fileutils
+
+Retrives all the files for encrypter and decrypter. By default it is *C:\Users\\* on Windows and */home/* on Linux. But I redefined the value of **dir** with a testing directory (test_encrypt_dir).
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
