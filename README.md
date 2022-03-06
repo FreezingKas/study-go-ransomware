@@ -197,8 +197,6 @@ Project Link: [https://github.com/FreezingKas/basic-ransomware-golang](https://g
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [Choose an Open Source License](https://choosealicense.com)
 * [Basic README Template](https://github.com/othneildrew/Best-README-Template)
 * [Img Shields](https://shields.io)
