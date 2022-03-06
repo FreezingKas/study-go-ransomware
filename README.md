@@ -17,10 +17,10 @@
     <img src="https://i.ibb.co/DfCzBpW/kisspng-malware-computer-icons-computer-virus-virus-5adfcffbea2f32-1822409215246172119592.png" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Basic Ransomware GOLANG</h3>
+  <h3 align="center">Basic Ransomware Golang</h3>
 
   <p align="center">
-    My own ransomware to use my cryptographic knowledges and test GOLANG for the first time
+    My own ransomware to use my cryptographic knowledges and test Golang for the first time
     <br />
     <br />
     <a href="mailto:freezingkas@gmail.com">Contact me</a>
@@ -64,11 +64,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Recently, I learned cryptography at my university and I wanted to learn GOLANG. I tried to create this ransomware and this is very basic.
+Recently, I learned cryptography at my university and I wanted to learn Golang. I tried to create this ransomware and this is very basic.
 
 Objectives:
-* Learn GOLANG syntax.
-* Use AES-256 in GOLANG
+* Learn Golang syntax.
+* Use AES-256 in Golang
 * Try reversing my own ransomware
 
 <p align="right">(<a href="#top">back to top</a>)</p>
