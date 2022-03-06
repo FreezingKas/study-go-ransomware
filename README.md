@@ -132,12 +132,12 @@ git clone https://github.com/FreezingKas/basic-ransomware-golang.git
 ```
 
 * Build *attacker.go* :
-
 ```sh
 cd attacker
 go build attacker.go
 ./attacker
 ```
+
 It launches the HTTP server on localhost:8080. You can now receive AES keys from *encrypter.go*.
 
 * Build *encrypter.go*
@@ -146,6 +146,7 @@ cd encrypter
 go build encrypter.go
 ./encrypter
 ```
+
 Obviously, a victim will not build this program itself. After encryption, I have to ask for money but i didn't implement it for the moment.  Don't forget that you can change IP adress.
 
 * Build *decrypter.go*
@@ -154,6 +155,7 @@ cd decrypter
 go build decrypter.go
 ./decrypter
 ```
+
 The program will ask for the key in command-line and the objectives is to make it simple for a victim to enter the AES key.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
