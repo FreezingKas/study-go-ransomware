@@ -202,8 +202,8 @@ Project Link: [https://github.com/FreezingKas/basic-ransomware-golang](https://g
 * [Choose an Open Source License](https://choosealicense.com)
 * [Basic README Template](https://github.com/othneildrew/Best-README-Template)
 * [Img Shields](https://shields.io)
-* [Stackoverflow](https://stackoverflow.com) (as usual)
-* [Free PNG](https://www.freepng.fr) (for the logo)
+* [StackOverflow](https://stackoverflow.com) (as usual)
+* [pauvretimo](https://github.com/pauvretimo) (for the nice logo)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
