@@ -181,6 +181,7 @@ The program will ask for the key in command-line and the objectives is to make i
 - [ ] Create a database to store keys.
 - [ ] AV Evasion
 - [x] Use .env for IP adress + port and test directory
+- [ ] Send key via Tor
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
