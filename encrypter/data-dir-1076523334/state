@@ -1,0 +1,27 @@
+# Tor state file last generated on 2022-03-07 13:47:18 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+Dormant 0
+Guard in=default rsa_id=D11217B44873FD7C879E541844B4C20B9A7E5CFB nickname=Kienjoch sampled_on=2022-02-26T05:35:29 sampled_idx=0 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=B5C44D74017C98E8666DBA6B9D01AF127E21C9C1 nickname=Unnamed sampled_on=2022-03-03T02:41:44 sampled_idx=1 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=438F3EA4C9FB0DB63F5377A3271AB5435FAD7E04 nickname=dolemite sampled_on=2022-02-26T04:24:33 sampled_idx=2 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=C48F7051E1FCA459C982F52F629844431384B028 nickname=lmtor4 sampled_on=2022-02-28T22:48:29 sampled_idx=3 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=77A3ADC5D455778B53C2803761916DFB7DA0A790 nickname=redvader sampled_on=2022-03-01T17:46:48 sampled_idx=4 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=E08F2FD44CC16B7015138DC95507A660BEB8851D nickname=LittleSister sampled_on=2022-03-07T02:53:05 sampled_idx=5 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=B24E3BB3F5E5FCEB909054E681016093E6051475 nickname=qwertz3 sampled_on=2022-03-02T23:51:08 sampled_idx=6 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=46A1E8E9C074D762BE896BE14C50E4B25FD5A9C9 nickname=blackbanana sampled_on=2022-02-25T12:10:11 sampled_idx=7 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=1D702DA43D588FE9D308D3879A6F5E61BB2ECCFA nickname=schumacher sampled_on=2022-03-06T03:18:00 sampled_idx=8 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=A093F8B6417975A4F4C7AD10EE1234D0E745CF72 nickname=lmtor5 sampled_on=2022-02-27T18:42:12 sampled_idx=9 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=F6740DEABFD5F62612FA025A5079EA72846B1F67 nickname=poiuty sampled_on=2022-03-04T14:38:03 sampled_idx=10 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=235D3444236ABC28F412E93814F6B783200D4630 nickname=UenoStation54 sampled_on=2022-02-27T06:28:02 sampled_idx=11 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=7A2F23397F4B360652213360EA5C59765911F6F5 nickname=straDEicebeer07 sampled_on=2022-03-01T12:13:44 sampled_idx=12 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=D70A5E01EC14D078164D5E587608949F85FD771B nickname=leaders2 sampled_on=2022-03-02T13:19:32 sampled_idx=13 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=A68097FE97D3065B1A6F4CE7187D753F8B8513F5 nickname=olabobamanmu sampled_on=2022-03-05T14:28:07 sampled_idx=14 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=B8D45E58E35F62201B906EC927795D33649AC10D nickname=memcpy2 sampled_on=2022-02-26T18:27:47 sampled_idx=15 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=9F7D6E6420183C2B76D3CE99624EBC98A21A967E nickname=Nivrim sampled_on=2022-03-04T13:37:19 sampled_idx=16 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=1992EB218BE54D631913A7657E9B166008A03F28 nickname=CanisLatrans sampled_on=2022-02-25T13:55:17 sampled_idx=17 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=54630AD43B3588B82B05A7223437CD0F57345CE1 nickname=Zollkriminalamt2 sampled_on=2022-03-03T08:18:55 sampled_idx=18 sampled_by=0.4.6.9 listed=1
+Guard in=default rsa_id=83A3AE1332227457EE92A9EFE19737BAEB83B592 nickname=SoleriaNetwork sampled_on=2022-03-05T02:47:24 sampled_idx=19 sampled_by=0.4.6.9 listed=1
+LastWritten 2022-03-07 12:47:18
+TorVersion Tor 0.4.6.9
