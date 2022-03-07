@@ -86,7 +86,6 @@ Do not use this program for illegal purposes ! I am not responsible for the acti
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
 ## Getting Started
 
 You have 4 modules : `attacker`, `encrypter`, `decrypter` and `fileutils`. 
@@ -109,7 +108,7 @@ It is just a simple HTTP server made with the Golang package **net/http**. It re
 
 * encrypter
 
-First, it generates an random 256 bits key and send it to the server. By default it is a POST request made with **net/http** package to localhost:8080 but you can change it to whatever you want in *encrypter.go*. After it retrieves all the content of files in directory defined in *fileutils.go* (you can also change it). Finally it encrypt all the content of files and replace it.
+First, it generates an random 256 bits key and send it to the server. By default it is a POST request made with **net/http** package to localhost:8080 but you can change it to whatever you want in *.env*. After it retrieves all the content of files in directory defined in *.env* (you can also change it). Finally it encrypt all the content of files and replace it.
 
 * decrypter
 
@@ -117,7 +116,7 @@ Similarly to encrypter, it retrieves all the files but it decrypt with the key p
 
 * fileutils
 
-Retrives all the files for encrypter and decrypter. By default it is *C:\Users\\* on Windows and */home/* on Linux. But I redefined the value of **dir** with a testing directory (test_encrypt_dir).
+Retrives all the files for encrypter and decrypter. By default it is *C:\Users\\* on Windows and */home/* on Linux. But I redefined the value of **dir** with a testing directory in *.env* file.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -130,6 +129,17 @@ First, clone the project :
 ```
 git clone https://github.com/FreezingKas/basic-ransomware-golang.git
 ```
+
+And change the .env file :
+
+```
+IP=localhost
+PORT=8080
+DIR=/tmp/test
+```
+
+**IP** and **PORT** are used to build *encypter.go*. This is the IP and the port of the server where the keys wille be sent.
+**DIR** is used to build *encrypter.go* and *decrypter.go*. This is the directory that will be encrypted.
 
 * Build *attacker.go* :
 ```sh
@@ -170,7 +180,7 @@ The program will ask for the key in command-line and the objectives is to make i
 - [ ] Implement AES from scratch.
 - [ ] Create a database to store keys.
 - [ ] AV Evasion
-- [ ] Use .env for IP adress + port and test directory
+- [x] Use .env for IP adress + port and test directory
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
