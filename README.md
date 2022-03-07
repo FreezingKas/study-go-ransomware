@@ -124,13 +124,13 @@ Retrives all the files for encrypter and decrypter. By default it is *C:\Users\\
 
 ## Build
 
-First, clone the project :
+* First, clone the project :
 
 ```
 git clone https://github.com/FreezingKas/basic-ransomware-golang.git
 ```
 
-And change the .env file :
+* And change the .env file :
 
 ```
 IP=localhost
