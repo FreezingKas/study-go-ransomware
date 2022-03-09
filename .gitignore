@@ -1,0 +1,3 @@
+test_encrypt_dir/*
+**/date-dir*
+.env
