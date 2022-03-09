@@ -84,6 +84,8 @@ Do not use this program for illegal purposes ! I am not responsible for the acti
 * [AES Golang Package](https://pkg.go.dev/crypto/aes)
 * [HTTP Golang Package](https://pkg.go.dev/net/http)
 * [Bine Go API](https://github.com/cretz/bine/tree/v0.2.0)
+* [SQLlite 3](https://www.sqlite.org/index.html)
+* [SQLlite3 Go Package](https://github.com/mattn/go-sqlite3)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
