@@ -65,24 +65,27 @@ func listener(w http.ResponseWriter, r *http.Request) {
 		}
 
 		key := r.PostFormValue("key")
+
+		mac := r.PostFormValue("mac")
+
 		fmt.Println(key)
-		writeDatabase(key)
+
+		writeDatabase(key, mac)
 
 	default:
 		fmt.Fprintf(w, "Tssss")
 	}
 }
 
-func writeDatabase(key string) { // Add error management
+func writeDatabase(key string, mac string) { // Add error management
 
 	db, err := sql.Open("sqlite3", "./key.db")
-
 	checkErr(err)
 
-	statement, err := db.Prepare("INSERT INTO keys(timestamp, key) values(?,?)")
+	statement, err := db.Prepare("INSERT INTO keys(timestamp, key, mac) values(?,?,?)")
 	checkErr(err)
 
-	statement.Exec(fmt.Sprint(time.Now().Unix()), key)
+	statement.Exec(fmt.Sprint(time.Now().Unix()), key, mac)
 	db.Close()
 
 }
