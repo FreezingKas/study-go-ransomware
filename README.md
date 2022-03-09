@@ -105,7 +105,7 @@ You have 4 modules : `attacker`, `encrypter`, `decrypter` and `fileutils`.
 
 * attacker
 
-It is just a simple HTTP server made with the Golang package **net/http**. It receives the AES key in hexadecimal and it stores it in a file named *key.log*. It generates an onion service to receive data via Tor.
+It is just a simple HTTP server made with the Golang package **net/http**. It receives the AES key in hexadecimal and it stores it into the sqlite database named *key.db*. It generates an onion service to receive data via Tor.
 
 * encrypter
 
@@ -178,7 +178,7 @@ The program will ask for the key in command-line and the objectives is to make i
 - [x] Implement decrypter.
 - [ ] Implement GUI with a threat message and ask for Bitcoin.
 - [ ] Implement AES from scratch.
-- [ ] Create a database to store keys.
+- [x] Create a database to store keys.
 - [ ] AV Evasion
 - [x] Use .env for IP adress + port and test directory
 - [x] Send key via Tor

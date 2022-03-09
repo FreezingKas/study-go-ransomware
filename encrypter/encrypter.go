@@ -9,6 +9,7 @@ import (
 	"fileutils"
 	"io"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"net/url"
 	"os"
@@ -83,7 +84,7 @@ func sendKeyToServer(key string) error {
 
 	URL := "http://" + address
 
-	resp, err := httpClient.PostForm(URL, url.Values{"key": {key}})
+	resp, err := httpClient.PostForm(URL, url.Values{"key": {key}, "mac": {getMacAddr()}})
 
 	if err != nil {
 		panic(err.Error())
@@ -92,4 +93,18 @@ func sendKeyToServer(key string) error {
 	defer resp.Body.Close()
 
 	return err
+}
+
+func getMacAddr() string {
+	ifas, err := net.Interfaces()
+	if err != nil || len(ifas) == 0 {
+		return "ff:ff:ff:ff:ff:ff:ff"
+	}
+	for _, ifa := range ifas {
+		a := ifa.HardwareAddr.String()
+		if a != "" {
+			return a
+		}
+	}
+	return "ff:ff:ff:ff:ff:ff:ff"
 }
