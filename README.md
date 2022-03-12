@@ -203,7 +203,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@Maxence_Jng](https://twitter.com/Maxence_Jng) - freezingkas@gmail.com
+FreezingKas - [@Maxence_Jng](https://twitter.com/Maxence_Jng) - freezingkas@gmail.com
 
 Project Link: [https://github.com/FreezingKas/basic-ransomware-golang](https://github.com/FreezingKas/basic-ransomware-golang)
 
