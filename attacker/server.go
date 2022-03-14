@@ -11,6 +11,7 @@ import (
 
 	"database/sql"
 
+	"github.com/gen2brain/go-libtor"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -21,9 +22,14 @@ func main() {
 }
 
 func run() error {
-	// Start TOR
-	fmt.Println("Starting and registering onion service...")
-	t, err := tor.Start(context.TODO(), nil)
+	// Start tor with some defaults + elevated verbosity
+	fmt.Println("Starting and registering onion service, please wait a bit...")
+	t, err := tor.Start(context.TODO(), &tor.StartConf{ProcessCreator: libtor.Creator})
+	if err != nil {
+		log.Panicf("Failed to start tor: %v", err)
+	}
+	defer t.Close()
+
 	if err != nil {
 		log.Panicf("Unable to start Tor: %v", err)
 	}

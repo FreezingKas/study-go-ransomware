@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/cretz/bine/tor"
+	"github.com/gen2brain/go-libtor"
 	"github.com/joho/godotenv"
 )
 
@@ -63,7 +64,7 @@ func main() {
 }
 
 func sendKeyToServer(key string) error {
-	t, err := tor.Start(context.TODO(), nil)
+	t, err := tor.Start(context.TODO(), &tor.StartConf{ProcessCreator: libtor.Creator})
 	if err != nil {
 		return err
 	}
