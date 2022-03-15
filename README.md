@@ -17,7 +17,7 @@
     <img src="https://svgur.com/i/etn.svg" alt="Logo" width="200" height="200">
   </a>
 
-  <h3 align="center">Basic Ransomware Golang</h3>
+  <h3 align="center">Just A Study Go Ransomware</h3>
 
   <p align="center">
     My own ransomware to use my cryptographic knowledges and test Golang for the first time
